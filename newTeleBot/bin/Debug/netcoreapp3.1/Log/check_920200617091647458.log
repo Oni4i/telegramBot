@@ -1,0 +1,7 @@
+﻿[17.06.2020 21:16:49.676] [
+Command: check
+Request: {"tAccountNumber":"9256556994","trnAmount":"2500.00","trnPickupPoint":"EZGH","trnCurrency":"RUR","trnService":"9274","trnAdditionalInfo":"","sName":"Вася","sLastName":"Сергей","sBirthday":"19950612","sCountry":"RU","sCity":"Башкортостан","sAddress":"Центральная, 15","sIDtype":"ПАСПОРТ ГРАЖДАНИНА РФ","sIDnumber":"N06246333","sIDdate":"20150614","sIDwhom":"Союзом иностранных граждан Латвии","sCountryC":"RU","sBirthPlace":"Уругвайская ССРМ","sResidentC":"RU"}
+Response: 
+Status: 
+
+StatusTest: ]

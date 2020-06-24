@@ -1,0 +1,13 @@
+﻿<Window x:Class="newTeleBot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:newTeleBot"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="335" Width="400">
+    <Grid x:Name="grid_root" Margin="0,10,0,5">
+        <Label Content="Status" HorizontalAlignment="Center" Height="85" Margin="0,44,0,0" VerticalAlignment="Top" Width="162" FontSize="50" FontWeight="Bold"/>
+        <Label x:Name="StatusLabel" HorizontalContentAlignment="Center" FontSize="30" Content="Bot is active" HorizontalAlignment="Center" Margin="0,129,0,0" VerticalAlignment="Top" Width="380"/>
+    </Grid>
+</Window>

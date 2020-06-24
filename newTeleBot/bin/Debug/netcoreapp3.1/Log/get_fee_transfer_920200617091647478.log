@@ -1,0 +1,7 @@
+﻿[17.06.2020 21:16:49.675] [
+Command: get_fee_transfer
+Request: {"amount_comiss":"","city":"CDPA","amount_in":"0.00","country":"RU","region":"77","amount_out":"2500.00","curr_out":"810","curr_in":"810"}
+Response: 
+Status: 
+
+StatusTest: ]

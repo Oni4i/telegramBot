@@ -1,0 +1,7 @@
+﻿[23.06.2020 10:59:32.847] [
+Command: pay
+Request: {"find_type":"550_monitoring","usertype":"2","period":"always","notice_telegram":"","inform_event":"update_db","inn":"7718997433","fee":"","reward":"","__proxy__":""}
+Response: {}
+Status: 500
+
+StatusTest: definitive]

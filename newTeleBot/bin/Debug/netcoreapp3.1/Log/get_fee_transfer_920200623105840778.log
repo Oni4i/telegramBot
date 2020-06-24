@@ -1,0 +1,7 @@
+﻿[23.06.2020 10:59:05.605] [
+Command: create_transfer
+Request: {"amount_comiss":"","city":"CDPA","amount_in":"0.00","country":"RU","region":"77","amount_out":"2500.00","curr_out":"810","curr_in":"810","service":"2","recipient_firstname":"Дмитрий","recipient_surname":"Вилкин","recipient_patronymic":"Васильевич","recipient_resident":"0","recipient_citizenship":"","sender_surname":"Ильина","sender_firstname":"Алла","sender_patronymic":"Васильевна","sender_mobilenumber":"84952224455","sender_birth_place":"Уругвайская ССРМ","sender_citizenship":"643","sender_resident":"0","sender_resident_country":"643","sender_doc_type":"RU.1","sender_doc_serial":"","sender_doc_number":"N06246333","sender_doc_delivery_place":"Союзом иностранных граждан Латвии","sender_doc_code_place":"-","sender_reg_apartment":"","sender_reg_address":"4a09ef7b-9683-4f67-8f33-ee6f5bec98f2","sender_doc_delivery_date":"14.06.2015","sender_birth_date":"13.06.1985","sender_doc2_number":"","sender_doc2_type":"","sender_doc2_delivery_date":"","sender_doc2_serial":"","sender_doc2_code_place":"","sender_doc2_delivery_place":"","fee":"25.00","fee_agent":"7.50","fee_other":"17.50","rate":"0.00"}
+Response: {}
+Status: 2
+
+StatusTest: definitive]
