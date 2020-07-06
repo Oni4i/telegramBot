@@ -24,7 +24,8 @@ namespace newTeleBot
             ["HELP"] = new List<string>{""},
             ["TRANSACT"] = new List<string> { "NUMBER", "OPERATION"},
             ["TRANSACTDATE"] = new List<string> { "YEAR", "MONTH", "DAY"},
-            ["OWNREQUEST"] = new List<string> { "request"}
+            ["OWNREQUEST"] = new List<string> { "request"},
+            ["PIN"] = new List<string> { "request" }
         };
 
     }

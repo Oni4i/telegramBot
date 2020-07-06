@@ -10,6 +10,7 @@ using System.Data;
 using System.Data.SQLite;
 using Telegram.Bot.Types.ReplyMarkups;
 using System.Collections.Generic;
+using Telegram.Bot.Requests;
 
 namespace newTeleBot
 {
@@ -38,6 +39,7 @@ namespace newTeleBot
             botClient = new TelegramBotClient(Const.BotToken);
 
             botClient.OnMessage += Bot_OnMessage;
+      
 
             botClient.StartReceiving();
         }
@@ -63,22 +65,28 @@ namespace newTeleBot
 
         async void Bot_OnMessage(object sender, MessageEventArgs e)
         {
-            try
+            if (e.Message != null && e.Message.Text != null)
             {
-                if (e.Message != null && e.Message.Chat.Type == ChatType.Private)
+                try
                 {
-                    //privateMessage(e);
-                    
+                    if (e.Message != null && e.Message.Chat.Type == ChatType.Private)
+                    {
+                        //privateMessage(e);
 
-                    
+
+
+                    }
+                    else if (e.Message != null && e.Message.Chat.Type == ChatType.Group && e.Message.Text[0] == '/')
+                    {
+                        groupMessage(e);
+                    }
                 }
-                else if (e.Message != null && e.Message.Chat.Type == ChatType.Group && e.Message.Text[0] == '/')
-                {
-                    groupMessage(e);
-                }
+                catch { }
             }
-            catch { }
+            else
+            {
 
+            }
         }
 
         void groupMessage(MessageEventArgs e)
@@ -110,6 +118,9 @@ namespace newTeleBot
                     break;
                 case "OWNREQUEST":
                     cmd = new OWNREQUEST(botClient, chat, receiveMessage);
+                    break;
+                case "PIN":
+                    cmd = new PIN(botClient, chat, receiveMessage);
                     break;
                 default:
                     cmd = new Command(botClient, chat, receiveMessage);
