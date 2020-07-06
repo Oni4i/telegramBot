@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Windows;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -12,44 +14,30 @@ namespace newTeleBot.Commands
     {
         public TRANSACT(TelegramBotClient bot, Chat chat, string receiveMessage) : base(bot, chat, receiveMessage)
         {
-            if (receiveParams.Length > 1)
+            if (receiveParams.Length == 1 || receiveParams.Length == 2)
             {
-                MessageToSend = "Too much arguments";
-            } else if (receiveParams.Length == 1 && receiveParams[0] != "")
-            {
-                bool find = false;
-
-                //search transact
-                foreach (var file in Directory.EnumerateFiles(Directory.GetCurrentDirectory() + "\\Log\\"))
+                var responseFromDB = receiveParams.Length == 1 ? dbOperation.GetField(receiveParams[0]) : dbOperation.GetField(receiveParams[0], receiveParams[1]);
+                if (responseFromDB.Count() > 0)
                 {
-                    var fileSplit = file.Split("_");
-                    var fileTransact = fileSplit[fileSplit.Length - 1][..^4];
-
-                    if (!find && fileTransact == receiveParams[0])
+                    MessageToSend = "";
+                    foreach (var field in responseFromDB)
                     {
-                        find = true;
-
-
-                        //open log
-                        using (var a = new FileStream(file, FileMode.Open, FileAccess.Read))
+                        foreach (var column in field)
                         {
-
-                            byte[] array = new byte[a.Length];
-                            a.Read(array, 0, array.Length);
-                            string textFromFile = System.Text.Encoding.UTF8.GetString(array);
-
-                            MessageToSend = textFromFile;
-
+                            MessageToSend += $"{column.Key}: {column.Value}\n";
                         }
+                        MessageToSend += "\n_______________\n";
                     }
                 }
-
-                if (!find)
+                else if (receiveParams.Length == 1)
                 {
                     MessageToSend = $"Transaction {receiveParams[0]} not found";
                 }
+                else
+                {
+                    MessageToSend = $"Transaction {receiveParams[0]} of operation {receiveParams[1]} not found";
+                }
             }
-
             sendMessage(MessageToSend);
         }
     }

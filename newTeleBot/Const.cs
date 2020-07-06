@@ -8,15 +8,24 @@ namespace newTeleBot
     {
         public static string DBName
         {
-            get { return "DB NAME"; }
+            get { return "logsDB.db"; }
         }
         public static string TableName
         {
-            get { return "DB'S TABLE NAME"; }
+            get { return "logsInfo"; }
         }
         public static string BotToken
         {
-            get { return "YOUR BOT'S TOKEN"; }
+            get { return "1194145986:AAEgcwG2W14W3w7YVkn8bQW4HnBmET52Pec"; }
         }
+
+        public static Dictionary<string, List<string>> Commands = new Dictionary<string, List<string>>
+        {
+            ["HELP"] = new List<string>{""},
+            ["TRANSACT"] = new List<string> { "NUMBER", "OPERATION"},
+            ["TRANSACTDATE"] = new List<string> { "YEAR", "MONTH", "DAY"},
+            ["OWNREQUEST"] = new List<string> { "request"}
+        };
+
     }
 }

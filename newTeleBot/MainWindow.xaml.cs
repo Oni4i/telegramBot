@@ -8,7 +8,8 @@ using Telegram.Bot.Types.Enums;
 using newTeleBot.Commands;
 using System.Data;
 using System.Data.SQLite;
-
+using Telegram.Bot.Types.ReplyMarkups;
+using System.Collections.Generic;
 
 namespace newTeleBot
 {
@@ -25,6 +26,25 @@ namespace newTeleBot
         {
             InitializeComponent();
 
+
+            sqliteInstalation();
+            botInstalation();
+
+        }
+
+        void botInstalation()
+        {
+
+            botClient = new TelegramBotClient(Const.BotToken);
+
+            botClient.OnMessage += Bot_OnMessage;
+
+            botClient.StartReceiving();
+        }
+
+
+        void sqliteInstalation()
+        {
             if (!System.IO.File.Exists(Const.DBName))
                 SQLiteConnection.CreateFile(Const.DBName);
 
@@ -34,17 +54,10 @@ namespace newTeleBot
                 Connect.Open();
 
             //Existing
-            if (!dbOperation.TableExist(Const.TableName, Connect, _sqlite_sync))
+            if (!dbOperation.TableExist(Const.TableName))
             {
-                dbOperation.createTable(Connect, _sqlite_sync);
+                dbOperation.CreateTable();
             }
-
-            //Create bot
-            botClient = new TelegramBotClient(Const.BotToken);
-
-            botClient.OnMessage += Bot_OnMessage;
-
-            botClient.StartReceiving();
         }
 
 
@@ -54,7 +67,10 @@ namespace newTeleBot
             {
                 if (e.Message != null && e.Message.Chat.Type == ChatType.Private)
                 {
-                    privateMessage(e);
+                    //privateMessage(e);
+                    
+
+                    
                 }
                 else if (e.Message != null && e.Message.Chat.Type == ChatType.Group && e.Message.Text[0] == '/')
                 {
@@ -88,6 +104,12 @@ namespace newTeleBot
                     break;
                 case "TRANSACT":
                     cmd = new TRANSACT(botClient, chat, receiveMessage);
+                    break;
+                case "TRANSACTDATE":
+                    cmd = new TRANSACTDATE(botClient, chat, receiveMessage);
+                    break;
+                case "OWNREQUEST":
+                    cmd = new OWNREQUEST(botClient, chat, receiveMessage);
                     break;
                 default:
                     cmd = new Command(botClient, chat, receiveMessage);
