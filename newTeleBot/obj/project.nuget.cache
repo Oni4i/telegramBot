@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AGOKp2Xs37V0EoZXWLCLval3nbxZDQDFobBbws5vSF1cBOGH9Opwd8cAw4hgfPAkWTbk5RZ9A81FD9tHOpXpxw==",
+  "dgSpecHash": "0qTZ0veqEgd8SwsXOpRi7H3wMTO3cBsEqo8GlN2kc4oqPSUa/1gt4Ahl+9H0l0Cctt2At7076Oldixz+16WZ4g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nikit\\Desktop\\newTeleBot\\newTeleBot\\newTeleBot.csproj",
+  "projectFilePath": "C:\\Users\\nikit\\Desktop\\telegramBot\\newTeleBot\\newTeleBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nikit\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
     "C:\\Users\\nikit\\.nuget\\packages\\httptosocks5proxy\\1.4.0\\httptosocks5proxy.1.4.0.nupkg.sha512",

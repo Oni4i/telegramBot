@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nikit\\Desktop\\newTeleBot\\newTeleBot\\newTeleBot.csproj": {}
+    "C:\\Users\\nikit\\Desktop\\telegramBot\\newTeleBot\\newTeleBot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nikit\\Desktop\\newTeleBot\\newTeleBot\\newTeleBot.csproj": {
+    "C:\\Users\\nikit\\Desktop\\telegramBot\\newTeleBot\\newTeleBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nikit\\Desktop\\newTeleBot\\newTeleBot\\newTeleBot.csproj",
+        "projectUniqueName": "C:\\Users\\nikit\\Desktop\\telegramBot\\newTeleBot\\newTeleBot.csproj",
         "projectName": "newTeleBot",
-        "projectPath": "C:\\Users\\nikit\\Desktop\\newTeleBot\\newTeleBot\\newTeleBot.csproj",
+        "projectPath": "C:\\Users\\nikit\\Desktop\\telegramBot\\newTeleBot\\newTeleBot.csproj",
         "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nikit\\Desktop\\newTeleBot\\newTeleBot\\obj\\",
+        "outputPath": "C:\\Users\\nikit\\Desktop\\telegramBot\\newTeleBot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nikit\\AppData\\Roaming\\NuGet\\NuGet.Config",

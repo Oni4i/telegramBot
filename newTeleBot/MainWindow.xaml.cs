@@ -11,6 +11,7 @@ using System.Data.SQLite;
 using Telegram.Bot.Types.ReplyMarkups;
 using System.Collections.Generic;
 using Telegram.Bot.Requests;
+using System;
 
 namespace newTeleBot
 {
@@ -27,8 +28,6 @@ namespace newTeleBot
         {
             InitializeComponent();
 
-
-            sqliteInstalation();
             botInstalation();
 
         }
@@ -45,23 +44,6 @@ namespace newTeleBot
         }
 
 
-        void sqliteInstalation()
-        {
-            if (!System.IO.File.Exists(Const.DBName))
-                SQLiteConnection.CreateFile(Const.DBName);
-
-            Connect = new SQLiteConnection($"DataSource={Const.DBName};Version=3;");
-
-            if (Connect.State == ConnectionState.Closed)
-                Connect.Open();
-
-            //Existing
-            if (!dbOperation.TableExist(Const.TableName))
-            {
-                dbOperation.CreateTable();
-            }
-        }
-
 
         async void Bot_OnMessage(object sender, MessageEventArgs e)
         {
@@ -71,17 +53,20 @@ namespace newTeleBot
                 {
                     if (e.Message != null && e.Message.Chat.Type == ChatType.Private)
                     {
-                        //privateMessage(e);
+                        privateMessage(e);
 
 
 
                     }
-                    else if (e.Message != null && e.Message.Chat.Type == ChatType.Group && e.Message.Text[0] == '/')
+                    else if (e.Message != null && e.Message.Chat.Type == ChatType.Supergroup && e.Message.Text[0] == '/')
                     {
                         groupMessage(e);
                     }
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    await botClient.SendTextMessageAsync(e.Message.Chat, ex.Message);
+                }
             }
             else
             {
@@ -105,19 +90,13 @@ namespace newTeleBot
         {
             Command cmd;
 
-            switch (command)
+            switch (command.ToUpper())
             {
                 case "HELP":
                     cmd = new HELP(botClient, chat, receiveMessage);
                     break;
-                case "TRANSACT":
-                    cmd = new TRANSACT(botClient, chat, receiveMessage);
-                    break;
-                case "TRANSACTDATE":
-                    cmd = new TRANSACTDATE(botClient, chat, receiveMessage);
-                    break;
-                case "OWNREQUEST":
-                    cmd = new OWNREQUEST(botClient, chat, receiveMessage);
+                case "LOG":
+                    cmd = new LOG(botClient, chat, receiveMessage);
                     break;
                 case "PIN":
                     cmd = new PIN(botClient, chat, receiveMessage);
